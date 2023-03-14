@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Dalai LLaMA</title>
+<style>
+  body { margin: 0; padding: 10px; color: rgba(0,0,0,0.8); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  form { border: 2px solid rgba(0,0,0,0.2); display: flex; padding: 5px; box-sizing: border-box; margin: 0; }
+  #input { white-space: pre-wrap; padding: 5px; outline: none; border: none; flex-grow: 1;  font-size: 14px; box-sizing: border-box; }
+  #input:focus { outline: none; }
+  #form > button { padding: 10px; background: gold; border: none; border-radius: 3px; outline: none; color: black; box-sizing: border-box; }
+
+  #messages { list-style-type: none; margin: 0; box-sizing: border-box; font-size: 14px; padding: 0; }
+  #messages > li { padding: 10px; font-size: 14px; box-sizing: border-box; }
+  #messages > li:nth-child(odd) { background: #efefef; }
+  li { white-space: pre-wrap; }
+  .loading {
+    padding: 1px;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.7);
+    font-size: 14px;
+    background: #efefef;
+    white-space: pre-line;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .info {
+    font-size: 12px;
+    padding: 5px;
+  }
+</style>
+</head>
+<body>
+<form id="form" action="{{url_for('home')}}", method="post">
+  <input type="text" id="prompt" name="prompt" style="width:100%"> 
+  <button>autocomplete</button> 
+</form>
+<div class='info'>TIP: shift+enter for multiple lines</div>
+<div class="loading", id="loading_1"></div>
+{% if processed_text %}
+<script>
+  const text_cur = "{{ processed_text }}";
+  let timer;
+  let i = 0;
+
+  function type() {
+    //  Append the text to the current web page
+    var paragraph = document.getElementById("loading_1");
+    // if the current letter is a \n then add a <br> tag
+    if (text_cur[i] == "|") {
+      paragraph.appendChild(document.createElement("br"));
+    }
+    else {
+      var text = document.createTextNode(text_cur[i]);
+      paragraph.appendChild(text);
+    }
+
+    //  Increase the index
+    i++;
+    
+    //  If the index reaches the maximum text length, cease the timer
+    if(i >= text_cur.length) 
+      clearInterval(timer);
+  }
+  
+  //  Pass in function, instead of calling it
+  timer = setInterval(type, 100);
+</script>
+{% endif %}
+</body>
+</html>
