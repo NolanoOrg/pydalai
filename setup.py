@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
         for cur_file in cur_files:
             if not os.path.exists(f"llama.cpp/models/{model}/{cur_file}"):
-                os.system(f"wget https://agi.gpt4.org/llama/LLaMA/{model}/{cur_file} -P models/{model}")
+                os.system(f"wget https://agi.gpt4.org/llama/LLaMA/{model}/{cur_file} -P llama.cpp/models/{model}")
 
         print(f"Downloaded {model} model")
 
@@ -47,6 +47,6 @@ if __name__ == "__main__":
             os.makedirs("llama.cpp/models")
 
         if not os.path.exists(f"llama.cpp/models/{cur_file}"):
-            os.system(f"wget https://agi.gpt4.org/llama/LLaMA/{cur_file} -P models")
+            os.system(f"wget https://agi.gpt4.org/llama/LLaMA/{cur_file} -P llama.cpp/models")
 
     print("Downloaded tokenizer")

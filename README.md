@@ -15,4 +15,4 @@ sh setup.sh
 2. The page outputs the old output even after refreshing the page.
 
 ## Credits
-Author: [Ojsav](https://github.com/kamalojasv181)
+Author: [Ojasv](https://github.com/kamalojasv181)
