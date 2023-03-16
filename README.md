@@ -7,6 +7,8 @@ Have anaconda installed on your system. If you do not have anaconda, you can ins
 
 ## Installation
 ```
+git clone https://github.com/NolanoOrg/pydalai --recurse-submodules
+cd pydalai
 sh setup.sh
 ```
 
