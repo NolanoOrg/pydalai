@@ -2,17 +2,12 @@ import argparse
 import copy
 import os
 from tqdm import tqdm
-import git
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--models", type=tuple, default=("7B",))
 
     args = parser.parse_args()
-
-    # clone a github repo
-    if not os.path.exists("llama.cpp"):
-        git.Git(".").clone("https://github.com/ggerganov/llama.cpp.git")
 
     num = {
         "7B": 1,
