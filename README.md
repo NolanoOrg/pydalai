@@ -1,4 +1,5 @@
 # PyDalai
+
 This repo contains python based webapp to run LLMs. 
 Port of [Dalai](https://github.com/kamalojasv181) to python.
 
@@ -7,8 +8,6 @@ Have anaconda installed on your system. If you do not have anaconda, you can ins
 
 ## Installation
 ```
-git clone https://github.com/NolanoOrg/pydalai --recurse-submodules
-cd pydalai
 sh setup.sh
 ```
 
@@ -17,4 +16,7 @@ sh setup.sh
 2. The page outputs the old output even after refreshing the page.
 
 ## Credits
-Author: [Ojasv](https://github.com/kamalojasv181)
+Author: [Ojsav](https://github.com/kamalojasv181)
+
+## Discord
+Join the [Discord](https://discord.com/invite/peBU7yWa) server to get help and discuss about the project.
